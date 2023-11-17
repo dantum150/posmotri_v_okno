@@ -13,7 +13,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', Arial, sans-serif; 
   font-size: 18px;
   background-color: #1b1919;
   display: flex;
@@ -43,10 +43,12 @@ ol {
 a {
   text-decoration: none;
   display: block;
+  color: inherit;
 }
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 fieldset {
@@ -56,17 +58,17 @@ fieldset {
 .button {
   color: #FFF;
   text-align: center;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed',Arial, sans-serif; 
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  background: none;
+  background-color: transparent; 
   padding: 6px 0;
-  transition: 1s;
+  transition: background-color 1s; 
   border: 1px solid #FFF;
   cursor: pointer;
-  outline: none;
+  appearance: none; 
 }
 
 .button:active {
@@ -75,6 +77,10 @@ fieldset {
 
 .button:hover {
   text-decoration: underline;
+}
+
+.button:focus { 
+  outline: none; 
 }
 
 .button:focus-visible {
@@ -88,7 +94,7 @@ fieldset {
 
 .content {
   display: grid;
-  grid-template-columns: 711px 399px;
+  grid-template-columns: max-content max-content; 
   grid-template-rows: 78px 456px;
   grid-template-areas:
     ". detailes"
@@ -103,21 +109,16 @@ fieldset {
   gap: 16px;
 }
 
-.result__video {
+.result__video { 
   width: 100%;
   height: 100%;
-  position: absolute;
   object-fit: fill;
 }
 
-.result__video-container,
-.content__list {
+.result__video-container { 
+  width: 711px;
+  height: 386px;
   position: relative;
-  height: 100%;
-}
-
-.preloader-template {
-  position: absolute;
 }
 
 .content__details {
@@ -142,7 +143,7 @@ fieldset {
 
 .search-form__fieldset-title {
   color: #FFF;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed',Arial, sans-serif; 
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -151,7 +152,7 @@ fieldset {
 
 .search-form__textfield {
   color: rgba(255, 255, 255, 0.70);
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed',Arial, sans-serif; 
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -159,15 +160,21 @@ fieldset {
   background: none;
   border: none;
   width: 100%;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #fff;
 }
 
 .search-form__textfield:active {
   outline: 1px solid #FFF;
 }
 
-.search-form__label:has(.search-form__textfield:focus-visible) {
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible { 
   outline: 1px solid #FFF;
-  outline-offset: 1px;
+  outline-offset: 1px; 
 }
 
 .search-form__checkbox-list {
@@ -181,12 +188,6 @@ fieldset {
   gap: 5px;
   cursor: pointer;
 }
-
-.search-form__label:has(.search-form__textfield) {
-  border-top: 1px solid #FFF;
-  border-bottom: 1px solid #fff;
-}
-
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: 1px solid #FFF;
@@ -235,11 +236,11 @@ fieldset {
 
 .title {
   color: #fff;
-  font-family: Oswald, sans-serif;
+  font-family: 'Oswald',Arial, sans-serif; 
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
-  line-height: 94%;
+  line-height: 0.94; 
   text-transform: uppercase;
 }
 
@@ -252,19 +253,23 @@ fieldset {
   flex-direction: column;
   gap: 30px;
   overflow: auto;
+  position: relative; 
 }
 
+.content__card-link:focus {
+  outline: none;
+}
 .content__card-link:focus-visible {
   outline: 1px solid #FFF;
 }
 
-.content__list::-webkit-scrollbar {
-  display: none;
+.content__card-link_current {
+  background-color: #545050;;
 }
 
 .content__video-card-title {
   color: #FFF;
-  font-family: Oswald;
+  font-family: 'Oswald',Arial, sans-serif; 
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -272,29 +277,27 @@ fieldset {
   text-transform: uppercase;
 }
 
-.content__list-item {
-  text-decoration: none;
+.content__list-item { 
   transition: 1s;
-  padding: 2px;
+  padding: 3px;
 }
 
-.content__list-item:hover {
+.content__card-link:hover { 
   text-decoration: underline;
 }
 
-.content__list-item:active {
+.content__card-link:active { 
   background: #545050;
 }
 
 .content__video-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 6px;
+  grid-template-columns: 200px 194px; 
 }
 
 .content__video-card-description {
   color: #FFF;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed',Arial, sans-serif; 
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -305,4 +308,9 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.content__video-card-thumbnail {
+  height: 103px;
+  display: block;
 }
